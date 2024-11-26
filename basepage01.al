@@ -3,7 +3,7 @@ page 50140 basePage01
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = TableBase01;
+    SourceTable = "TableBase01";
     CaptionML = ENU = 'Base Page 01', ESP = 'Pagina Base 01';
 
     layout
@@ -12,43 +12,19 @@ page 50140 basePage01
         {
             repeater(ItemPrincipal)
             {
-                field(Item; Rec.Item)
+                field("Item"; Rec."Item")
                 {
 
                 }
-                field("PO Placed Amount"; Rec."poPlacedAmount")
+                field("Qty On Hand"; Rec."Qty On Hand")
                 {
 
                 }
-                field("Qty On Hand"; Rec."qtyOnHand")
+                field("Qty On Order"; Rec."Qty On Order")
                 {
 
                 }
-                field("Ideal On Hand"; Rec."idelaOnHand")
-                {
-
-                }
-                field("Total Inv + PO"; Rec."totalInvAddPo")
-                {
-
-                }
-                field("Day Sales"; Rec."90DaySales")
-                {
-
-                }
-                field("Projected 90 Days"; Rec."projected90Days")
-                {
-
-                }
-                field("Projected Weekly Sales"; Rec."projectedWeeklySsales")
-                {
-
-                }
-                field("Qty In Pallets"; Rec."qtyInPallets")
-                {
-
-                }
-                field("Time To Oder"; Rec."timeToOder")
+                field("90 Day Sales"; Rec."90 Day Sales")
                 {
 
                 }
@@ -66,7 +42,6 @@ page 50140 basePage01
         {
             action(ActionName)
             {
-
                 trigger OnAction()
                 begin
 
