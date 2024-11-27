@@ -36,7 +36,7 @@ query 50146 "basicoQuery02 - Pedidos"
             dataitem("Item_Ledger_Entry"; "Item Ledger Entry")
             {
                 DataItemLink = "Item No." = Item."No.";
-                SqlJoinType = InnerJoin;
+                //SqlJoinType = InnerJoin;
                 //DataItemTableView = SORTING("Location Code");
                 column("Location_Code"; "Location Code")
                 {
@@ -50,7 +50,7 @@ query 50146 "basicoQuery02 - Pedidos"
                 dataitem("Sales_Line"; "Sales Line")
                 {
                     DataItemLink = "No." = Item_Ledger_Entry."Item No.";
-                    SqlJoinType = InnerJoin;
+                    //SqlJoinType = InnerJoin;
                     column("QuantitySL"; "Quantity")
                     {
                         CaptionML = ESP = 'Ventas anteriores', ENU = 'Previous Sales';
