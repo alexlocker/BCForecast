@@ -1,4 +1,4 @@
-pageextension 50140 "Planning Order Profile" extends "Order Processor Role Center"
+pageextension 50140 "Planning Order Profile" extends "Demand Forecast Card"
 {
     actions
     {
@@ -13,10 +13,6 @@ pageextension 50140 "Planning Order Profile" extends "Order Processor Role Cente
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-
-
-
-
 
             }
         }

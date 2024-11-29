@@ -1,4 +1,4 @@
-table 50140 "TableBase01"
+table 50140 "TableOrderPlaning"
 {
     DataClassification = ToBeClassified;
 
@@ -10,7 +10,8 @@ table 50140 "TableBase01"
         }
         field(2; "Qty On Hand"; Decimal)
         {
-            DataClassification = ToBeClassified;
+            ObsoleteState = Pending;
+            ObsoleteReason = 'Reemplazado por FlowField "Qty On Hand Flow".';
         }
         field(3; "Qty On Order"; Decimal)
         {
@@ -20,7 +21,52 @@ table 50140 "TableBase01"
         {
             DataClassification = ToBeClassified;
         }
+        field(5; "Qty On Hand Flow"; Decimal)
+        {
+            CalcFormula = Sum("Item Ledger Entry"."Quantity" WHERE("Item No." = FIELD("Item")));
+            DecimalPlaces = 0 : 5;
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(7; "Qty Sales Order"; Decimal)
+        {
+            CalcFormula = Sum("Sales Line"."Quantity" WHERE("Document Type" = CONST(Order),
+                                                            "No." = FIELD("Item")));
+            DecimalPlaces = 0 : 5;
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(8; "Difference Qty (On Hand - Sales Order)"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            DecimalPlaces = 0 : 5;
+            Editable = false;
+        }
+        field(9; "Qty Purchase Order"; Decimal)
+        {
+            Caption = 'Qty Purchase Order';
+            CalcFormula = Sum("Purchase Line"."Quantity" WHERE("Document Type" = CONST(Order),
+                                                               "No." = FIELD("Item")));
+            DecimalPlaces = 0 : 5;
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(10; "Item Filter"; Code[20])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(11; "Location Filter"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(12; "DifferenceQty"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            Editable = false; // Esto lo hace no editable
+        }
+
     }
+
 
     keys
     {
@@ -29,4 +75,6 @@ table 50140 "TableBase01"
             Clustered = true;
         }
     }
+
+
 }
